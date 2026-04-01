@@ -1,60 +1,96 @@
-* {
-	margin:  0px;
-	padding:  0px;
-	box-sizing: border-box;
-}
+/* Importamos Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
-/* adjusting fonts */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, helvetica, arial, sans-serif;
-	transition: background 500ms ease;
+    /* Tipografía Montserrat con alternativas seguras */
+    font-family: 'Montserrat', sans-serif;
+    
+    /* El color base #253342 con un degradado negro que sube desde el fondo */
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(37,51,66,1) 100%);
+    background-attachment: fixed; /* Mantiene el degradado fijo al hacer scroll */
+    
+    /* Todo el texto en blanco para mejor contraste */
+    color: #FFFFFF; 
+    
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
 }
 
-p, li {
-	font-size:  22px;
-	line-height: 30px;
+/*Image styling */
+
+.contenedor-imagenes {
+  display: flex;          /* Activa el modo Flexbox */
+  justify-content: space-between; /* Deja el mismo espacio entre las imágenes */
+  gap: 15px;              /* Crea una separación específica de 15px entre ellas */
 }
 
-/* adjusting spacing */
-
-#left-column {
-	padding: 20px;
-}
-
-h1, p {
-	margin-bottom:  20px;
-}
-
-ul, ol {
-	margin-left: 20px;
+.contenedor-imagenes img {
+  width: 32%;             /* Cada imagen ocupa casi un tercio de la fila */
+  height: auto;           /* Mantiene la proporción */
+  object-fit: cover;      /* Si tienen tamaños distintos, esto las recorta para que encajen */
 }
 
 img {
-	max-width: 100%;
-	height:  auto;
+  max-width: 100%; /* La imagen nunca será más grande que su contenedor */
+  height: auto;    /* Mantiene la proporción original */
+  border-radius: 8px; /* Bordes redondeados opcionales */
 }
 
-/* uncomment the code below to set the grid */
-
-/*#grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+/* Tamaño de texto más pequeño y color blanco */
+p, {
+    font-size: 16px; /* Ajustado de 25px a 16px para mejor legibilidad UI */
+    line-height: 24px;
+    color: #FFFFFF; 
 }
 
-body {
-	overflow: hidden;
+ li {
+    font-size: 14px; /* Ajustado de 25px a 16px para mejor legibilidad UI */
+    line-height: 20px;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif, italic;
 }
 
-.scroll {
-	padding:  20px;
-	overflow: scroll;
-	height: 100vh;
+h1, h2 {
+    margin-bottom: 20px;
+    color: #FFFFFF; /* Cambiado a blanco para seguir tu instrucción */
+    font-weight: 700;
+}
+
+h3 { 
+    color: #9999FF; 
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 #left-column {
+    padding: 20px;
 }
 
-#right-column {
-	background: #333;
-}*/
+ul, ol {
+    margin-left: 20px;
+    list-style-position: inside;
+}
+
+#grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Estilo para los enlaces para que resalten sobre el fondo oscuro */
+a {
+    color: #4FB06D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
