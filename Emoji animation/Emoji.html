@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Emoji Animation | UI Design Programming 1</title>
+  <style>
+    /* 1. Reseteo básico y fondo que combina con tu página */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      /* Usamos el mismo fondo degradado oscuro estilo Steam/Moderno */
+      background: radial-gradient(circle at center, #1b2838 0%, #141a24 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden; /* Evita barras de desplazamiento molestas */
+    }
+
+    /* 2. Contenedor para controlar el tamaño gigante y centrado */
+    .gif-container {
+      position: relative;
+      width: 90vw;       /* Ocupa el 90% del ancho de la pantalla */
+      max-width: 550px;  /* Límite máximo para que no se pixele demasiado */
+      aspect-ratio: 1/1; /* Mantiene la proporción cuadrada perfecta del GIF */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 3. Estilos aplicados al GIF para máxima calidad */
+    .gif-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ajusta el GIF sin recortarlo ni deformarlo */
+      
+      /* Truco de renderizado: mantiene los bordes lo más limpios posible al agrandar */
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+
+      /* Una sombra sutil de fondo azul/brillante para que se integre a la UI */
+      filter: drop-shadow(0px 15px 35px rgba(27, 40, 56, 0.8)) 
+              drop-shadow(0px 0px 25px rgba(102, 192, 244, 0.15));
+    }
+
+    /* 4. Botón flotante para regresar elegantemente a tu index.html */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background: rgba(30, 40, 55, 0.75);
+      color: #c7d5e0;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #2a475e;
+      color: #fff;
+      border-color: #66c0f4;
+      box-shadow: 0px 0px 15px rgba(102, 192, 244, 0.4);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="gif-container">
+    <img src="Emoji Animation.gif" alt="Emoji Animado Gigante">
+  </div>
+
+</body>
+</html>
