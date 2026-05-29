@@ -1,5 +1,5 @@
-/* Importamos Montserrat desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+/* Importamos Montserrat y las tipografías coreanas desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Bagel+Fat+One&family=East+Sea+Dokdo&family=Orbit&display=swap');
 
 * {
     margin: 0px;
@@ -7,60 +7,87 @@
     box-sizing: border-box;
 }
 
+/* --- MODO CLARO (POR DEFECTO) --- */
 body {
-    /* Tipografía Montserrat con alternativas seguras */
     font-family: 'Montserrat', sans-serif;
-    
-    /* El color base #253342 con un degradado negro que sube desde el fondo */
+    /* El degradado original */
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(37,51,66,1) 100%);
-    background-attachment: fixed; /* Mantiene el degradado fijo al hacer scroll */
-    
-    /* Todo el texto en blanco para mejor contraste */
+    background-attachment: fixed; 
     color: #FFFFFF; 
-    
     line-height: 1.6;
-    margin: 0;
     padding: 20px;
     min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease; /* Transición suave para el cambio de modo */
 }
 
-/*Image styling */
+/* --- MODO OSCURO (ACTIVADO POR JAVASCRIPT) --- */
+body.dark {
+    background: #121212; /* Un gris muy oscuro para diseño de interfaces */
+    background-image: none; /* Eliminamos explícitamente el degradado anterior */
+}
 
+/* --- IMÁGENES Y CONTENEDORES --- */
 .contenedor-imagenes {
-  display: flex;          /* Activa el modo Flexbox */
-  justify-content: space-between; /* Deja el mismo espacio entre las imágenes */
-  gap: 15px;              /* Crea una separación específica de 15px entre ellas */
+  display: flex;          
+  justify-content: space-between; 
+  gap: 15px;              
+  margin-bottom: 15px;
 }
 
 .contenedor-imagenes img {
-  width: 32%;             /* Cada imagen ocupa casi un tercio de la fila */
-  height: auto;           /* Mantiene la proporción */
-  object-fit: cover;      /* Si tienen tamaños distintos, esto las recorta para que encajen */
+  width: 32%;             
+  height: auto;           
+  object-fit: cover;      
 }
 
 img {
-  max-width: 100%; /* La imagen nunca será más grande que su contenedor */
-  height: auto;    /* Mantiene la proporción original */
-  border-radius: 8px; /* Bordes redondeados opcionales */
+  max-width: 100%; 
+  height: auto;    
+  border-radius: 8px; 
 }
 
-/* Tamaño de texto más pequeño y color blanco */
-p, {
-    font-size: 16px; /* Ajustado de 25px a 16px para mejor legibilidad UI */
+/* --- ANIMACIÓN PARA ALTERNAR TIPOGRAFÍAS COREANAS --- */
+@keyframes rotarTipografia {
+    0%, 30% {
+        font-family: 'Orbit', sans-serif;
+        color: #4FB06D; 
+    }
+    33%, 63% {
+        font-family: 'Bagel Fat One', cursive;
+        color: #9999FF; 
+    }
+    66%, 100% {
+        font-family: 'East Sea Dokdo', cursive;
+        color: #FFFFFF; 
+        font-size: 28px; 
+    }
+}
+
+.texto-coreano {
+    font-size: 22px;
+    margin-top: -10px; 
+    margin-bottom: 20px;
+    font-weight: 400;
+    transition: all 0.5s ease-in-out;
+    animation: rotarTipografia 9s infinite; 
+}
+
+/* --- TIPOGRAFÍAS Y TEXTOS --- */
+p {
+    font-size: 16px; 
     line-height: 24px;
     color: #FFFFFF; 
 }
 
- li {
-    font-size: 14px; /* Ajustado de 25px a 16px para mejor legibilidad UI */
+li {
+    font-size: 14px; 
     line-height: 20px;
     color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif, italic;
 }
 
 h1, h2 {
     margin-bottom: 20px;
-    color: #FFFFFF; /* Cambiado a blanco para seguir tu instrucción */
+    color: #FFFFFF; 
     font-weight: 700;
 }
 
@@ -70,6 +97,7 @@ h3 {
     margin-bottom: 15px;
 }
 
+/* --- ESTRUCTURA Y ENLACES --- */
 #left-column {
     padding: 20px;
 }
@@ -84,7 +112,6 @@ ul, ol {
     margin: 0 auto;
 }
 
-/* Estilo para los enlaces para que resalten sobre el fondo oscuro */
 a {
     color: #4FB06D;
     text-decoration: none;
@@ -93,4 +120,19 @@ a {
 
 a:hover {
     text-decoration: underline;
+    color: mediumpurple;
+}
+
+/* Estilo básico para el botón de Dark Mode */
+#darkmode {
+    padding: 10px 15px;
+    background-color: #4FB06D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#darkmode:hover {
+    background-color: #3e8e57;
 }
